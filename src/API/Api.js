@@ -80,8 +80,9 @@ export const registerAPI = async (payload) => {
 export const getUserInfo = async () => {
   return await apiRequest("/user/getUserInfo", {}, "get");
 };
-export const getAllPropertiesAPI = async () => {
-  return await apiRequest("/properties/getAllProperties", {}, "get");
+// Api.js
+export const getAllPropertiesAPI = async (query = '') => {
+  return await apiRequest(`/properties/getAllProperties${query}`, {}, 'get');
 };
 
 // Fetch single property by ID

@@ -1,17 +1,35 @@
 .header {
   width: 100%;
-  height: 100px;
+  height: 120px; /* Increased height for larger logo */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 70px;
   box-sizing: border-box;
+  background: linear-gradient(to right, #ffffff, #f8f9fa); /* Subtle gradient background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .logo-image {
-  height: 44px;
+  height: 60px; /* Increased from 44px */
   width: auto;
-  max-width: 100px;
+  max-width: 180px; /* Increased from 100px */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Added subtle shadow */
+  transition: filter 0.3s ease;
+}
+
+.logo-image:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15)); /* Enhanced shadow on hover */
 }
 
 .nav-menu ul {
@@ -28,40 +46,67 @@
   color: #3A3A3A;
   font-size: 18px;
   font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  position: relative;
 }
 
 .nav-menu a:hover {
-  text-decoration: underline;
+  color: #2495FD; /* Changed from underline to color change */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #2495FD;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
 }
 
 .request-call-button {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #2495FD;
+  background: linear-gradient(135deg, #2495FD, #207dd3); /* Gradient background */
   color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 12px 24px; /* Increased padding */
+  border-radius: 25px; /* Rounded corners */
   font-size: 16px;
-  transition: background-color 0.3s;
+  font-weight: 600; /* Made text bolder */
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(36, 149, 253, 0.3); /* Enhanced shadow */
 }
 
 .request-call-button:hover {
-  background-color: #207dd3;
+  background: linear-gradient(135deg, #207dd3, #1a6bb8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(36, 149, 253, 0.4);
   text-decoration: none;
 }
 
 .call-icon {
-  font-size: 14px;
+  font-size: 16px; /* Increased from 14px */
 }
 
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) {
   .header {
     padding: 0 40px;
-    height: 80px;
+    height: 100px; /* Adjusted for tablet */
+  }
+
+  .logo-image {
+    height: 50px; /* Adjusted for tablet */
+    max-width: 150px;
   }
 
   .nav-menu ul {
@@ -73,7 +118,7 @@
   }
 
   .request-call-button {
-    padding: 8px 16px;
+    padding: 10px 20px;
     font-size: 15px;
   }
 }
@@ -82,14 +127,15 @@
 @media (max-width: 767px) {
   .header {
     padding: 0 20px;
-    height: 70px;
+    height: 80px; /* Adjusted for mobile */
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 10px;
   }
 
   .logo-image {
-    height: 36px;
+    height: 45px; /* Adjusted for mobile */
+    max-width: 120px;
   }
 
   .nav-menu {
@@ -111,7 +157,7 @@
   }
 
   .request-call-button {
-    padding: 6px 12px;
+    padding: 8px 16px;
     font-size: 14px;
   }
 
@@ -125,8 +171,13 @@
 /* Small Mobile Styles (up to 480px) */
 @media (max-width: 480px) {
   .header {
-    height: 60px;
+    height: 70px; /* Adjusted for small mobile */
     padding-top: 5px;
+  }
+
+  .logo-image {
+    height: 40px; /* Adjusted for small mobile */
+    max-width: 100px;
   }
 
   .nav-menu ul {
@@ -138,7 +189,7 @@
   }
 
   .request-call-button {
-    padding: 8px;
+    padding: 10px;
     border-radius: 50%;
   }
 

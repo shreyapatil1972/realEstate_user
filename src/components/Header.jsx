@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; // Import FaMapMarkerAlt for location
 import '../Css/Header.css';
-import logoImage from '../assets/logo.jpg'; // Adjust the path to your actual logo image
+import logoImage from '../assets/modern-real-estate-logo.svg'; // Updated to use new SVG logo
 
 const Header = () => {
   return (
     <header className="header" style={{ backgroundColor: 'white' }}>
       <div className="logo">
         <Link to="/">
-          <img src={logoImage} alt="Company Logo" className="logo-image" />
+          <img src={logoImage} alt="Premier Properties Logo" className="logo-image" />
         </Link>
       </div>
       <nav className="nav-menu">

@@ -139,3 +139,220 @@
 .lead{
   color: #888888;
 }
+
+/* Add hover effects for Bootstrap property cards */
+.property-card {
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 12px;
+  will-change: transform;
+}
+
+.property-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+/* Image zoom effect */
+.property-card .card-img-top {
+  transition: transform 0.3s ease-out;
+  transform: scale(1);
+  will-change: transform;
+}
+
+.property-card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+/* Badge hover effects */
+.property-card .badge {
+  transition: all 0.2s ease-out;
+  transform: scale(1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.property-card:hover .badge {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Bottom overlay hover effects */
+.property-card .bg-dark {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+}
+
+.property-card:hover .bg-dark {
+  transform: translateY(-2px);
+  background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Card body hover effects */
+.property-card .card-body {
+  transition: background 0.2s ease-out;
+  background: white;
+}
+
+.property-card:hover .card-body {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+}
+
+/* Title hover effects */
+.property-card .card-title {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+}
+
+.property-card:hover .card-title {
+  color: #2495FD !important;
+  transform: translateY(-1px);
+}
+
+/* Price hover effects */
+.property-card .text-primary {
+  transition: all 0.2s ease-out;
+  transform: scale(1);
+}
+
+.property-card:hover .text-primary {
+  transform: scale(1.03);
+  color: #207dd3 !important;
+}
+
+/* Address hover effects */
+.property-card .text-muted {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+}
+
+.property-card:hover .text-muted {
+  color: #6c757d !important;
+  transform: translateY(-1px);
+}
+
+/* Feature icons hover effects */
+.property-card .d-flex.justify-content-between span {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.property-card:hover .d-flex.justify-content-between span {
+  transform: translateY(-1px);
+  background: rgba(36, 149, 253, 0.08);
+}
+
+/* Add a subtle glow effect */
+.property-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #2495FD, #429283, #2495FD);
+  border-radius: 14px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.property-card:hover::before {
+  opacity: 0.2;
+}
+
+/* Add a subtle overlay on hover */
+.property-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(36, 149, 253, 0.03), rgba(66, 146, 131, 0.03));
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.property-card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure card content stays above overlay */
+.property-card .position-relative,
+.property-card .card-body {
+  position: relative;
+  z-index: 2;
+}
+
+/* Add a subtle pulse animation for the price */
+@keyframes pricePulse {
+  0%, 100% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.property-card:hover .text-primary {
+  animation: pricePulse 1.5s ease-in-out infinite;
+}
+
+/* Add a floating animation for the entire card */
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(-6px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.property-card:hover {
+  animation: cardFloat 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .property-card:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .property-card:hover .card-img-top {
+    transform: scale(1.04);
+  }
+  
+  .property-card:hover .card-title {
+    transform: translateY(-1px);
+  }
+}
+
+/* Ensure smooth transitions on all interactive elements */
+.property-card * {
+  transition: all 0.2s ease-out;
+}
+
+/* Add a subtle border effect on hover */
+.property-card {
+  border: 2px solid transparent;
+  transition: all 0.2s ease-out, border-color 0.1s ease-out;
+}
+
+.property-card:hover {
+  border-color: rgba(36, 149, 253, 0.15);
+}
+
+/* Optimize for performance */
+.property-card {
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
